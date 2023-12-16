@@ -783,12 +783,12 @@ body {
 }
 
 .about {
-    height: 100vh;
+    min-height: 100vh;
     width: 100%;
 }
 
 .aboutTitle {
-    position: relative;
+    position: fixed;
     height: 100vh;
     width: 100%;
     display: flex;
@@ -796,6 +796,14 @@ body {
     justify-content: space-evenly;
     align-items: center;
     padding: 20vh 0;
+    z-index: 999;
+    background: transparent;
+}
+
+.aboutContainer {
+    height: 100%;
+    width: 100%;
+    position: relative;
 }
 
 .aboutText {
@@ -807,27 +815,110 @@ body {
     transform: translate(-50%, -50%);
     font-size: 7svw;
     letter-spacing: -4svw;
+    color: var(--main-color);
 }
 
 .person {
+    position: absolute;
     height: 150px;
     width: 150px;
+    transition: 1s ease-in-out;
 }
 
 .person img {
     height: 100%;
-    width: 100%;
+    width: 100%;    
+    border-radius: 10%;
+    transition: 1s;
 }
 
-.personContainer {
-    height: 100%;
+.lex {
+    top: 25%;
+    left: 25%;
+
+}
+
+.rapha {
+    bottom: 25%;
+    left: 25%;
+}
+
+.cheska {
+    top: 25%;
+    right: 25%;
+}
+
+.carrao {
+    bottom: 25%;
+    right: 25%;
+}
+
+.scroll1 {
+    top: 15%;
+    left: 5%;
+}
+
+.scroll2 {
+    bottom: 15%;
+    left: 5%;
+}
+
+.scroll3 {
+    top: 15%;
+    right: 5%;
+}
+
+.scroll4 {
+    bottom: 15%;
+    right: 5%;
+}
+
+.aboutSectionContainer {
+    padding-top: 100vh;
+    min-height: 200vh;
+    width: 100%;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
     flex-direction: column;
 }
 
-.scroll {
-    justify-content: space-between;
-    /* align-items: normal; */
+.aboutSection {
+    display: flex;
+    justify-self: center;
+    flex-direction: column;
+    margin: 100vh 0;
+    max-width: 50%;
+}
+
+.aboutSection h1 {
+    margin: 20px 0;
+    color: var(--darker-blue);
+    font-size: 60px;
+}
+
+.aboutSection p {
+    margin: 20px 0;
+    color: var(--main-color);
+    font-size: 30px;
+}
+
+.emphasize {
+    transform: scale(1.3) translate(20%, 20%);
+    box-shadow: 0 0 10px 10px var(--darker-blue);
+}
+
+.emphasize2 {
+    transform: scale(1.3) translate(20%, -20%);
+    box-shadow: 0 0 10px 10px var(--darker-blue);
+}
+
+.emphasize3 {
+    transform: scale(1.3) translate(-20%, 20%);
+    box-shadow: 0 0 10px 10px var(--darker-blue);
+}
+
+.emphasize4 {
+    transform: scale(1.3) translate(-20%, -20%);
+    box-shadow: 0 0 10px 10px var(--darker-blue);
 }
