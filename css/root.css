@@ -1,4 +1,7 @@
+@import url('https://fonts.cdnfonts.com/css/perfectpixel');
 :root {
+    --font: 'PerfectPixel', sans-serif;
+    --font-2: Verdana, Geneva, Tahoma, sans-serif;
     --bg-color: #ffd662;
     --main-color: #00539c;/*00539cff  #091938*/
     --darker-blue: #091938;
