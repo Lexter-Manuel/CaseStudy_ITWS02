@@ -6,6 +6,10 @@ var cheskaIMG = document.getElementById("cheskaImg");
 var cheskaSection = document.querySelector(".aboutChes");
 var carraoIMG = document.getElementById("carraoImg");
 var carraoSection = document.querySelector(".aboutCarrao");
+var firstEmpty = document.querySelector("#empty1");
+var secondEmpty = document.querySelector("#empty2");
+var thirdEmpty = document.querySelector("#empty3");
+var fourthEmpty = document.querySelector("#empty4");
 
 function scanClass() {
   if(visible(lexSection)){
@@ -13,31 +17,38 @@ function scanClass() {
   }else{
     lexIMG.classList.remove("emphasize");
   }
-
+  if(visible(firstEmpty)){
+    lexIMG.classList.remove("emphasize");
+  }
   if(visible(cheskaSection)){
     cheskaIMG.classList.add("emphasize3");    
-    lexIMG.classList.remove("emphasize");
   }else{
     cheskaIMG.classList.remove("emphasize3");
-
+  }  
+  if(visible(secondEmpty)){
+    cheskaIMG.classList.remove("emphasize3");
   }
   if(visible(raphaSection)){
     raphaIMG.classList.add("emphasize2");
-    cheskaIMG.classList.remove("emphasize3");
   }else{
+    raphaIMG.classList.remove("emphasize2");
+  }
+  if(visible(thirdEmpty)){
     raphaIMG.classList.remove("emphasize2");
   }
   if(visible(carraoSection)){
     carraoIMG.classList.add("emphasize4");
-    raphaIMG.classList.remove("emphasize2");
 }else{
+    carraoIMG.classList.remove("emphasize4");
+  }
+  if(visible(fourthEmpty)){
     carraoIMG.classList.remove("emphasize4");
   }
 }
 
 function visible(element) {
   const elementDiv = element.getBoundingClientRect();
-  var distanceFromTop = -300;
+  var distanceFromTop = -100;
   return elementDiv.top - window.innerHeight <= distanceFromTop;
 }
 
@@ -68,10 +79,11 @@ window.addEventListener("scroll", function(){
     rapha.classList.toggle("scroll2", window.scrollY > 0);
     cheska.classList.toggle("scroll3", window.scrollY > 0);
     carrao.classList.toggle("scroll4", window.scrollY > 0);
-    
-    var moveUp = window.scrollY;
-    var text = document.querySelector(".aboutText");
-    
-    text.style.top = moveUp * -.15 + 50 + '%';
 })
 
+window.addEventListener("scroll", function(){
+  var moveUp = window.scrollY;
+  var text = document.querySelector(".aboutText");
+  
+  text.style.top = moveUp * -.15 + 50 + '%';
+})

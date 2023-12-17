@@ -58,11 +58,11 @@ body {
     align-items: center;
 }
 
-.navbar ul li {
+.navbar ul li, .responsiveNav li {
     list-style: none;
 }
 
-.navbar ul li a {
+.navbar ul li a, .responsiveNav li a {
     padding: 5px 12px;
     border-radius: 10px;
     text-decoration: none;
@@ -72,12 +72,12 @@ body {
     margin: 0 1px;
 }
 
-.navbar ul li a:hover {
+.navbar ul li a:hover, .responsiveNav li a:hover {
     text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
     color: var(--light-blue);
 }
 
-.navbar ul li a span {
+.navbar ul li a span, .responsiveNav li a span {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -91,7 +91,7 @@ body {
     transition: 0.3s;
 }
 
-.navbar ul li a:hover span {
+.navbar ul li a:hover span, .responsiveNav li a:hover span {
     transform: translateY(0) scale(1);
 }
 
@@ -216,6 +216,7 @@ body {
     transform: translate(0, 50%);
     left: -20svw;
     opacity: 0.5;
+    z-index: -100;
 }
 
 .lines {
@@ -283,7 +284,7 @@ body {
     width: 50%;
     padding: 10px 20px;
     color: var(--light-blue);
-    font-size: 1.5svw;
+    font-size: 20px;
     z-index: 1;
 }
 
@@ -367,15 +368,15 @@ body {
 
 .firstOrbit {
     position: absolute;
-    top: 1svw;
-    left: 7svw;
+    top: 50%;
+    left: 50%;
     width: 90svw;
     height: 90svw;
     border: 2px #091938 solid;
     border-radius: 100%;
     animation: orbit 18s linear infinite;
     transform-style: preserve-3d;
-    transform: rotateX(45deg) rotateY(-15deg) rotateZ(0);
+    transform: translate(-50%,-50%) rotateX(45deg) rotateY(-15deg) rotateZ(0);
     opacity: 0.5;
 }
 
@@ -421,7 +422,7 @@ body {
 
 @keyframes orbit {
     100% {
-      transform: rotateX(45deg) rotateY(-15deg) rotateZ(360deg);
+      transform: translate(-50%, -50%) rotateX(45deg) rotateY(-15deg) rotateZ(360deg);
     }
 }
 
@@ -432,15 +433,15 @@ body {
 
 .secondOrbit {
     position: absolute;
-    top: -5svw;
-    left: -1svw;
+    top: 50%;
+    left: 50%;
     width: 93svw;
     height: 93svw;
     border: 2px #091938 solid;
     border-radius: 100%;
     animation: orbit2 13s linear infinite;
     transform-style: preserve-3d;
-    transform: rotateX(45deg) rotateY(45deg) rotateZ(0);
+    transform: translate(-50%, -50%) rotateX(45deg) rotateY(45deg) rotateZ(0);
     opacity: 0.5;
 }
 
@@ -486,7 +487,7 @@ body {
 
 @keyframes orbit2 {
     100% {
-      transform: rotateX(45deg) rotateY(45deg) rotateZ(360deg);
+      transform: translate(-50%, -50%) rotateX(45deg) rotateY(45deg) rotateZ(360deg);
     }
 }
 
@@ -521,6 +522,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
     margin: 2svw 0 1svw 0;
 }
 
@@ -548,6 +550,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
     list-style-type: none;
 }
 
@@ -633,12 +636,11 @@ body {
 }
 
 .contactsContainer {
-    min-width: 1100px;
-    min-height: 550px;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
-    width: 50%;
+    flex-wrap: wrap;
+    /* width: 50%; */
     z-index: 999;
 }
 
@@ -647,8 +649,9 @@ body {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    max-width: 600px;
     z-index: 1;
-    padding-right: 30px;
+    padding: 15px;
 }
 
 .contactUs h2 {
@@ -691,6 +694,11 @@ body {
 
 .contactUs .information li:hover span:not(i) {
     text-decoration: underline;
+}
+
+.form {
+    max-width: 600px;
+    padding: 30px;
 }
 
 .form h2 {
@@ -834,43 +842,43 @@ body {
 
 .lex {
     top: 25%;
-    left: 25%;
+    left: 30%;
 
 }
 
 .rapha {
     bottom: 25%;
-    left: 25%;
+    left: 30%;
 }
 
 .cheska {
     top: 25%;
-    right: 25%;
+    right: 30%;
 }
 
 .carrao {
     bottom: 25%;
-    right: 25%;
+    right: 30%;
 }
 
 .scroll1 {
-    top: 15%;
-    left: 5%;
+    top: 7svw;
+    left: 4svw;
 }
 
 .scroll2 {
-    bottom: 15%;
-    left: 5%;
+    bottom: 7svw;
+    left: 4svw;
 }
 
 .scroll3 {
-    top: 15%;
-    right: 5%;
+    top: 7svw;
+    right: 4svw;
 }
 
 .scroll4 {
-    bottom: 15%;
-    right: 5%;
+    bottom: 7svw;
+    right: 4svw;
 }
 
 .aboutSectionContainer {
@@ -887,8 +895,16 @@ body {
     display: flex;
     justify-self: center;
     flex-direction: column;
-    margin: 100vh 0;
     max-width: 50%;
+}
+
+.emptySection {
+    height: 100vh;
+    margin-top: 100vh;
+}
+
+.emptySection:nth-of-type(last){
+    margin-top: 0;
 }
 
 .aboutSection h1 {
@@ -921,4 +937,205 @@ body {
 .emphasize4 {
     transform: scale(1.3) translate(-20%, -20%);
     box-shadow: 0 0 10px 10px var(--darker-blue);
+}
+
+.portfolio {
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 20vh;
+}
+
+.portfolioTitle {
+    color: var(--darker-blue);
+    margin-bottom: 80px;
+}
+
+.portfolioHolder {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.portfolio .portfolioHolder .portfolioImages .portfolioImageContent img {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    clip-path: polygon(35% 20%, 90% 20%, 65% 80%, 10% 80%);
+    transition: 1s ease-in-out;
+}
+
+.portfolio .portfolioHolder .portfolioImages:hover .portfolioImageContent img {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+    transform: scale(1.1);
+}
+
+.portfolio .portfolioHolder .portfolioImages {
+    position: relative;
+}
+
+.textHover {
+    position: absolute;
+    background-color: rgba(9, 25, 56, 0.5);
+    backdrop-filter: blur(3px);
+    overflow: hidden;
+    width: 0;
+    height: 0;
+    top: 50%;
+    left: 50%;
+    opacity: 0;
+    transform: translate(-50%,-50%);
+    transition: 1s ease-in-out;
+}
+
+.portfolio .portfolioHolder .portfolioImages:hover .textHover {
+    height: 100%;
+    width: 100%;
+    opacity: 1;
+    transform: translate(-50%,-50%) scale(1.1);
+}
+
+.textContainer {
+    padding: 0 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.portfolioText {
+    color: var(--bg-color);
+    text-transform: uppercase;
+}
+
+.responsiveNav {
+    position: absolute;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    right: 2rem;
+    top: 10vh;
+    height: 0;
+    background: rgba(0,0,0,.1);
+    backdrop-filter: blur(3px);
+    width: calc(100% - 60px);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: 0.4s ease-in-out;
+}
+
+.responsiveNav.toggle {
+    height: 150px;
+}
+
+.responsiveNav li {
+    padding: 0.7rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.toggleButton {
+    display: none;
+}
+
+@media (max-width: 992px) {
+    .navbar {
+        height: 10vh;
+    }
+
+    .logo p:first-child {
+        font-size: 16px;
+    }
+    
+    .logo p:last-child {
+        font-size: 12px;
+        letter-spacing: 1px;
+    }
+    
+    .navbar ul {
+        display: none;
+    }
+    .toggleButton {
+        display: block;
+    }
+
+    .responsiveNav {
+        display: flex;
+    }
+
+    .firstArticle p, .secondArticle p {
+        font-size: 16px;
+    }
+
+    .shape, .shape-2 {
+        width: 400px;
+        height: 500px;
+    }
+
+    .secondArticle {
+        bottom: 8svw;
+    }
+}
+
+@media(max-width: 768px) {
+    .responsiveNav {
+        right: 0;
+        width: 100%;
+    }
+    .hero {
+        flex-direction: column;
+    }
+    .hero-text {
+        margin: 200px 0;
+    }
+
+    .hero-text h1 {
+        font-size: 50px;
+    }
+    .hero-text p {
+        font-size: 25px;
+    }
+
+    .programmer {
+        top: 40%;
+        left: 25%;
+        bottom: 0;
+        right: 0;
+        height: 300px;
+        animation: wiggle 2s linear infinite;
+    }
+    
+    .smoke-holder {
+        top: 0%;
+        left: -20%;
+        bottom: 0;
+        right: 0;
+    }
+    .lines {
+        display: none;
+    }
+
+    .hero img.globe {
+        height: 400px;
+        bottom: 0;
+        right: 0;
+    }
+
+    .firstArticle p, .secondArticle p {
+        font-size: 14px;
+    }
+
+    .shape, .shape-2 {
+        width: 350px;
+        height: 500px;
+    }
+
+    .secondArticle {
+        bottom: svw;
+    }
 }
